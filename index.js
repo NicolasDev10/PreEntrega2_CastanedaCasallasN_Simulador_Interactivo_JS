@@ -22,12 +22,13 @@ class Libro {
     const libro4= new Libro( 4,"Incendiario","Itiel Arroyo","Vida", 2023, 78000,false);
     const libro5= new Libro( 5,"Viaje al centro de la tierra","Jules Verne","Alianza", 2001, 39000,false);
     const libros=[libro1,libro2,libro3,libro4,libro5]
-    const carrito=[]  
+    const Carrito=[]  
     
   function imprimirLibros(libros){
-    console.log('LIBROS DISPONIBLES:')
-    for(let y=0;y<libros.length;y++){
-    console.log(libros[y])
+    alert('LIBROS DISPONIBLES: \n');
+    for(let libro of libros){
+    alert(libro.id+') '+libro.nombre+', autor: '+libro.autor+', precio: '+libro.precio)
+    console.log(libro)
     }
   }
   
@@ -40,27 +41,27 @@ class Libro {
       switch(lb){
         case 1:
           console.log('¡Felicidades!, agregaste al carrito '+libro1['nombre']+' y el precio final con IVA es '+libro1.precioMasIva()+' pesos colombianos')
-          carrito.push(libro1)
+          Carrito.push(libro1)
           libro1['vendido']=true           
           break;
         case 2:
           console.log('¡Felicidades!, agregaste al carrito '+libro2['nombre']+' y el precio final con IVA es '+libro2.precioMasIva()+' pesos colombianos')
-          carrito.push(libro2)
+          Carrito.push(libro2)
           libro2['vendido']=true               
           break;
         case 3:
           console.log('¡Felicidades!, agregaste al carrito '+libro3['nombre']+' y el precio final con IVA es '+libro3.precioMasIva()+' pesos colombianos')
-          carrito.push(libro3)
+          Carrito.push(libro3)
           libro3['vendido']=true               
           break;
         case 4:
           console.log('¡Felicidades!, agregaste al carrito '+libro4['nombre']+' y el precio final con IVA es '+libro4.precioMasIva()+' pesos colombianos')
-          carrito.push(libro4)
+          Carrito.push(libro4)
           libro4['vendido']=true               
           break;
         case 5:
           console.log('¡Felicidades!, agregaste al carrito '+libro5['nombre']+' y el precio final con IVA es '+libro5.precioMasIva()+' pesos colombianos')
-          carrito.push(libro5)
+          Carrito.push(libro5)
           libro5['vendido']=true               
           break;
         default:
@@ -68,12 +69,26 @@ class Libro {
           break;
       }
      }
-     console.log('Tienes en el carrito los siguientes libros: ')
-     for(let z=0;z<carrito.length;z++){
-      console.log(carrito[z])
-      precioFinal+=carrito[z].precioMasIva()  
-      }   
-      console.log('El precio final de los libros mas el envio (5000) es de '+(precioFinal+envio)+' pesos colombianos')
+     alert('Tienes en el carrito los siguientes libros: ')
+     for(let libroc of Carrito){
+      alert(libroc.id+') '+libroc.nombre+', autor: '+libroc.autor+', precio: '+libroc.precio)      
+      console.log(libroc)  
+      }
+
+      function carrito(Carrito,precioFinalCarrito){
+        for(const precio of Carrito){
+          precioFinalCarrito(precio)
+        }
+      }
+
+      function precioFinalCarrito(libroc){
+        for(libroc of Carrito){
+        precioFinal+=libroc.precioMasIva()
+      }
+      alert('El precio final de los libros mas el envio (5000) es de '+(precioFinal+envio)+' pesos colombianos')
+    }    
+      carrito(Carrito,precioFinalCarrito)
+      
     }else{
       alert('Ingresa un numero de libros disponibles')
     }
