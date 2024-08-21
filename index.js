@@ -74,20 +74,13 @@ class Libro {
       alert(libroc.id+') '+libroc.nombre+', autor: '+libroc.autor+', precio: '+libroc.precio)      
       console.log(libroc)  
       }
-
       function carrito(Carrito,precioFinalCarrito){
         for(const precio of Carrito){
           precioFinalCarrito(precio)
         }
-      }
-
-      function precioFinalCarrito(libroc){
-        for(libroc of Carrito){
-        precioFinal+=libroc.precioMasIva()
-      }
-      alert('El precio final de los libros mas el envio (5000) es de '+(precioFinal+envio)+' pesos colombianos')
-    }    
-      carrito(Carrito,precioFinalCarrito)
+      }      
+      carrito(Carrito, (precio)=>{for(precio of Carrito){precioFinal+=precio.precioMasIva()}
+      alert('El precio final de los libros mas el envio (5000) es de '+(precioFinal+envio)+' pesos colombianos')})
       
     }else{
       alert('Ingresa un numero de libros disponibles')
