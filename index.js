@@ -1,11 +1,11 @@
 class Libro {
-    constructor(id, nombre, autor, editorial, año, precio,vendido) {
+    constructor(id, nombre, autor, editorial,precio, año ,vendido) {
       this.id = id;
       this.nombre = nombre;
       this.autor = autor;
-      this.editorial = editorial;
-      this.año = año;
+      this.editorial = editorial;      
       this.precio = precio;  
+      this.año = año;
       this.vendido = vendido;    
     }
     precioMasIva() {
@@ -16,11 +16,11 @@ class Libro {
   }
     let precioFinal=0
     const envio=5000
-    const libro1 = new Libro( 1,"100 años de soledad","Gabo","norma", 2016, 80000,false);
-    const libro2= new Libro( 2,"Akelerre","Mario Mendoza","planeta", 2000, 40000,false);
-    const libro3= new Libro( 3,"EL problema de los 3 cuerpos","Cixin Liu","PRH", 2023, 49000,false);
-    const libro4= new Libro( 4,"Incendiario","Itiel Arroyo","Vida", 2023, 78000,false);
-    const libro5= new Libro( 5,"Viaje al centro de la tierra","Jules Verne","Alianza", 2001, 39000,false);
+    const libro1 = new Libro( 1,"100 años de soledad","Gabo","norma", 80000,2016,false);
+    const libro2= new Libro( 2,"Akelerre","Mario Mendoza","planeta",40000, 2000,false);
+    const libro3= new Libro( 3,"EL problema de los 3 cuerpos","Cixin Liu","PRH",49000,2023,false);
+    const libro4= new Libro( 4,"Incendiario","Itiel Arroyo","Vida",78000,2023,false);
+    const libro5= new Libro( 5,"Viaje al centro de la tierra","Jules Verne","Alianza",39000,2001,false);
     const libros=[libro1,libro2,libro3,libro4,libro5]
     const Carrito=[]  
     
@@ -40,7 +40,7 @@ class Libro {
       let lb=parseInt(prompt('¿Que libro deseas comprar? Digita el id'))
       switch(lb){
         case 1:
-          console.log('¡Felicidades!, agregaste al carrito '+libro1['nombre']+' y el precio final con IVA es '+libro1.precioMasIva()+' pesos colombianos')
+          console.log('¡Felicidades!, agregaste al carrito '+libro1.nombre+' y el precio final con IVA es '+libro1.precioMasIva()+' pesos colombianos')
           Carrito.push(libro1)
           libro1['vendido']=true           
           break;
@@ -70,18 +70,10 @@ class Libro {
       }
      }
      alert('Tienes en el carrito los siguientes libros: ')
-     for(let libroc of Carrito){
-      alert(libroc.id+') '+libroc.nombre+', autor: '+libroc.autor+', precio: '+libroc.precio)      
-      console.log(libroc)  
-      }
-      function carrito(Carrito,precioFinalCarrito){
-        for(const precio of Carrito){
-          precioFinalCarrito(precio)
-        }
-      }      
-      carrito(Carrito, (precio)=>{for(precio of Carrito){precioFinal+=precio.precioMasIva()}
-      alert('El precio final de los libros mas el envio (5000) es de '+(precioFinal+envio)+' pesos colombianos')})
-      
+     const librosCa=Carrito.map((libro)=> "id: "+libro.id+","+libro.nombre+",precio: "+libro.precioMasIva())
+     alert(librosCa)     
+     precioFinal=Carrito.reduce((acumulador,precio)=>acumulador+precio.precioMasIva(),0)
+     alert(`El precio final a pagar mas envio (5000) es de ${precioFinal+5000} pesos colombianos`)      
     }else{
       alert('Ingresa un numero de libros disponibles')
     }
