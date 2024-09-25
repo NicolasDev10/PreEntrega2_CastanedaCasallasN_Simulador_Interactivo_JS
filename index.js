@@ -45,22 +45,22 @@ class Libro {
           libro1['vendido']=true           
           break;
         case 2:
-          console.log('¡Felicidades!, agregaste al carrito '+libro2['nombre']+' y el precio final con IVA es '+libro2.precioMasIva()+' pesos colombianos')
+          console.log('¡Felicidades!, agregaste al carrito '+libro2.nombre+' y el precio final con IVA es '+libro2.precioMasIva()+' pesos colombianos')
           Carrito.push(libro2)
           libro2['vendido']=true               
           break;
         case 3:
-          console.log('¡Felicidades!, agregaste al carrito '+libro3['nombre']+' y el precio final con IVA es '+libro3.precioMasIva()+' pesos colombianos')
+          console.log('¡Felicidades!, agregaste al carrito '+libro3.nombre+' y el precio final con IVA es '+libro3.precioMasIva()+' pesos colombianos')
           Carrito.push(libro3)
           libro3['vendido']=true               
           break;
         case 4:
-          console.log('¡Felicidades!, agregaste al carrito '+libro4['nombre']+' y el precio final con IVA es '+libro4.precioMasIva()+' pesos colombianos')
+          console.log('¡Felicidades!, agregaste al carrito '+libro4.nombre+' y el precio final con IVA es '+libro4.precioMasIva()+' pesos colombianos')
           Carrito.push(libro4)
           libro4['vendido']=true               
           break;
         case 5:
-          console.log('¡Felicidades!, agregaste al carrito '+libro5['nombre']+' y el precio final con IVA es '+libro5.precioMasIva()+' pesos colombianos')
+          console.log('¡Felicidades!, agregaste al carrito '+libro5.nombre+' y el precio final con IVA es '+libro5.precioMasIva()+' pesos colombianos')
           Carrito.push(libro5)
           libro5['vendido']=true               
           break;
