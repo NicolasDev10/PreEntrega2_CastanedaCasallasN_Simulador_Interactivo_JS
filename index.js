@@ -20,7 +20,7 @@ class Libro {
     const libro2= new Libro( 2,"Akelerre","Mario Mendoza","planeta",40000, 2000,false);
     const libro3= new Libro( 3,"EL problema de los 3 cuerpos","Cixin Liu","PRH",49000,2023,false);
     const libro4= new Libro( 4,"Incendiario","Itiel Arroyo","Vida",78000,2023,false);
-    const libro5= new Libro( 5,"Viaje al centro de la tierra","Jules Verne","Alianza",39000,2001,false);
+    const libro5= new Libro( 5,"Viaje al centro de la tierra","Jules Verne","Alianza",38000,2001,false);
     const libros=[libro1,libro2,libro3,libro4,libro5]
     const Carrito=[]  
     
